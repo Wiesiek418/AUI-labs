@@ -1,0 +1,38 @@
+<article *ngIf="character">
+  <header><h2>{{character.driverName}} {{character.driverSurname}}</h2></header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row mb-2">
+          <div class="col-6">
+            Formula Team ID:
+          </div>
+          <div class="col-6">
+            <span>{{character.formulaTeam.formulaTeamID}}</span><br/>
+            Team name:<br/>
+            <span>{{character.formulaTeam.formulaTeamName}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Nationality:
+          </div>
+          <div class="col-6">
+            <span>{{character.driverNationality}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Number of Formula One World Drivers' Champions:
+          </div>
+          <div class="col-6">
+            <span>{{character.driverWDCTitles}}</span>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</article>

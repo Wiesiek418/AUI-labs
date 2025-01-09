@@ -1,0 +1,28 @@
+<article class="text--justified">
+  <header><h2>Formula Teams</h2></header>
+
+  <table *ngIf="formulaTeams">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>View</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let team of formulaTeams.formulaTeams">
+      <td>{{team.formulaTeamName}}</td>
+      <td>
+        <a [routerLink]="['/formulaTeams/'+ team.formulaTeamID]">View</a>
+      </td>
+      <td>
+        <a [routerLink]="['/formulaTeams/' +team.formulaTeamID+ '/edit']">Edit</a>
+      </td>
+      <td>
+        <button (click)="onDelete(team)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a [routerLink]="['/formulaTeams/create']">Create</a>
+</article>

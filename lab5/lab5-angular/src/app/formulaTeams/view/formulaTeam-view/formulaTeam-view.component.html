@@ -1,0 +1,36 @@
+<article *ngIf="f1Team">
+  <header><h2>{{f1Team.formulaTeamName}}</h2></header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row mb-2">
+          <div class="col-6">
+            Nationality:
+          </div>
+          <div class="col-6">
+            <span>{{f1Team.formulaTeamNationality}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Number of Formula One World Constructions' Champions:
+          </div>
+          <div class="col-6">
+            <span>{{f1Team.formulaTeamWCCTitles}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Year of foundation:
+          </div>
+          <div class="col-6">
+            <span>{{f1Team.formulaTeamYearFounded}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

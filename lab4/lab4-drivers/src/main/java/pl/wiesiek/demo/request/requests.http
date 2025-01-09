@@ -1,0 +1,79 @@
+### Environment
+@driverID = f5ce475d-1566-44a7-b9ef-3c6d519844f5
+@formulaTeamID = 25783e70-25f3-4daf-b86b-1bea37b117ec
+
+### Get all drivers
+GET http://localhost:8081/api/drivers
+Accept: application/json
+
+### Get driver by ID
+# Carlos Sainz
+GET http://localhost:8081/api/drivers/72ede921-c102-43b7-a92f-4aa55b11f819
+Accept: application/json
+
+### Get all teams
+GET http://localhost:8081/api/formulaTeams
+Accept: application/json
+
+### Add new driver
+POST http://localhost:8081/api/drivers
+Content-Type: application/json
+
+{
+  "driverName": "Wiesiek",
+  "driverSurname": "Wiśniewski",
+  "driverNationality": "Polish",
+  "driverWDCTitles": 0,
+  "formulaTeamID": "{{formulaTeamID}}"
+}
+
+### Update driver
+PUT http://localhost:8081/api/drivers/72ede921-c102-43b7-a92f-4aa55b11f819
+
+Content-Type: application/json
+
+{
+  "driverName": "Carlos",
+  "driverSurname": "Leclerc",
+  "driverNationality": "Spanish",
+  "driverWDCTitles": 1,
+  "formulaTeamID": "0ae94084-5da3-4e97-8a0b-8cdc5c7662fa"
+}
+
+
+### Patch driver
+PATCH http://localhost:8081/api/drivers/d68c5d22-0886-4dfd-a242-d76a5dcf3a8d
+Content-Type: application/json
+
+{
+  "driverName": "Wiesiek",
+  "driverSurname": "Sainz",
+  "driverWDCTitles": 4
+}
+
+
+### Delete team
+DELETE http://localhost:8081/api/formulaTeams/0ae94084-5da3-4e97-8a0b-8cdc5c7662fa
+
+### CREATE TEAM
+POST http://localhost:8081/api/formulaTeams
+Content-Type: application/json
+
+{
+  "formulaTeamID": "0ae94084-5da3-4e97-8a0b-8cdc5c7662ab",
+  "formulaTeamName": "TESTREQUEST",
+  "formulaTeamNationality": "POLAND",
+  "formulaTeamWCCTitles": 0,
+  "formulaTeamYearFounded": 2024
+}
+
+### CREATE TEAM
+PUT http://localhost:8081/api/formulaTeams/0ae94084-5da3-4e97-8a0b-8cdc5c7662ab
+Content-Type: application/json
+
+{
+  "formulaTeamName": "ZMIANA",
+  "formulaTeamNationality": "Spain",
+  "formulaTeamWCCTitles": 2,
+  "formulaTeamYearFounded": 2025
+}

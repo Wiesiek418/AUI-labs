@@ -1,0 +1,65 @@
+<article *ngIf="driver">
+  <header><h2>Edit character</h2></header>
+
+  <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="driver.driverName"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="surname">Surname:</label>
+          <input id="surname" name="surname" [(ngModel)]="driver.driverSurname"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="nationality">Nationality:</label>
+          <input id="nationality" name="nationality" [(ngModel)]="driver.driverNationality"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="wdcTitles">WDC Titles:</label>
+          <input id="wdcTitles" name="wdcTitles" [(ngModel)]="driver.driverWDCTitles"/>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <fieldset *ngIf="formulaTeams">
+          <legend>Formula Team:</legend>
+          <div *ngFor="let formulaTeam of formulaTeams.formulaTeams">
+            <label>
+              <input type="radio" name="formulaTeam" [(ngModel)]="driver.formulaTeamID" [value]="formulaTeam.formulaTeamID"/>
+              {{formulaTeam.formulaTeamName}}
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Update</button>
+      </div>
+      <div class="col-2 p-2">
+        <button type="button" (click)="form.resetForm(original)">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>

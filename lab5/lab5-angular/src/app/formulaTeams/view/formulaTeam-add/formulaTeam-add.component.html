@@ -1,0 +1,59 @@
+
+<article>
+  <header><h2>Add character</h2></header>
+
+  <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="team.formulaTeamName"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="id">ID:</label>
+          <input id="id" name="id" [(ngModel)]="team.formulaTeamID"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="nationality">Nationality:</label>
+          <input id="nationality" name="nationality" [(ngModel)]="team.formulaTeamNationality"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="wccTitles">WCC Titles:</label>
+          <input id="wccTitles" name="wccTitles" [(ngModel)]="team.formulaTeamWCCTitles"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="yearFounded">Year founded:</label>
+          <input id="yearFounded" name="yearFounded" [(ngModel)]="team.formulaTeamYearFounded"/>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Create</button>
+      </div>
+    </div>
+  </form>
+</article>

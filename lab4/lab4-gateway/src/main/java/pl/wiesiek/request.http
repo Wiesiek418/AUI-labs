@@ -1,0 +1,36 @@
+### GET ALL TEAMS
+GET http://localhost:8083/api/formulaTeams
+
+### GET ALL DRIVERS
+GET http://localhost:8083/api/drivers
+
+
+### DELETE TEAM
+DELETE http://localhost:8083/api/formulaTeams/0ae94084-5da3-4e97-8a0b-8cdc5c7662fa
+
+### PUT DRIVER
+PUT http://localhost:8083/api/drivers/fcf4d317-47ba-43dd-a740-99048edfb947
+Content-Type: application/json
+
+{
+  "driverName": "Wiesiek",
+  "driverSurname": "Oliwka",
+  "driverNationality": "Polish",
+  "driverWDCTitles": 1,
+  "formulaTeamID": "2b78b0f5-d1c2-45d5-91d2-8616ff5969a3"
+}
+
+### TEST
+GET http://localhost:8083/api/formulaTeams/5b78b0f5-abcd-45d5-90d2-8616ff5969a3/drivers
+
+### Add new team
+POST http://localhost:8083/api/formulaTeams
+Content-Type: application/json
+
+{
+  "formulaTeamID": "1078b0f5-abcd-45d5-90d2-8616ff5969a3",
+  "formulaTeamName": "APEX GP",
+  "formulaTeamNationality": "USA",
+  "formulaTeamWCCTitles": 0,
+  "formulaTeamYearFounded": 2022
+}

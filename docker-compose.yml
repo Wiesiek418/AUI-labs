@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  #db
+  teams-db:
+    image: postgres:15
+    container_name: teams-db
+    restart: always
+    environment:
+      POSTGRES_USER: teams_user
+      POSTGRES_PASSWORD: teams_password
+      POSTGRES_DB: teams_db
+    ports:
+      - "5433:5432"
+
+  drivers-db:
+      image: postgres:15
+      container_name: drivers-db
+      restart: always
+      environment:
+        POSTGRES_USER: drivers_user
+        POSTGRES_PASSWORD: drivers_password
+        POSTGRES_DB: drivers_db
+      ports:
+        - "5434:5432"
+
+
+
+  #microservices
+  lab6-drivers:
+    image: lab6-drivers:1.0.0-SNAPSHOT
+    restart: always
+
+  lab6-formula-teams:
+    image: lab6-formula-teams:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      PL_WIESIEK_DRIVERS_URL: "http://lab6-drivers:8080"
+
+  lab6-gateway:
+    image: lab6-gateway:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      PL_WIESIEK_DRIVERS_URL: "http://lab6-drivers:8080"
+      PL_WIESIEK_F1TEAMS_URL: "http://lab6-formula-teams:8080"
+      PL_WIESIEK_GATEWAY_HOST: "lab6-gateway:8080"
+
+
+  lab6-ng:
+    image: lab6-ng:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      API_URL: http://lab6-gateway:8080/api
+    ports:
+      - "8087:80"
+

@@ -1,0 +1,35 @@
+### Environment
+@id= b46d667e-8e79-46d7-91e1-3a3c2829cd03
+
+
+### Get all teams
+GET http://localhost:8082/api/formulaTeams
+Accept: application/json
+
+### Delete team
+DELETE http://localhost:8082/api/formulaTeams/0ae94084-5da3-4e97-8a0b-8cdc5c7662fa
+
+
+### CREATE team
+POST localhost:8082/api/formulaTeams
+Content-Type: application/json
+
+{
+  "formulaTeamID": "0ae94084-5da3-4e97-8a0b-8cdc5c766123",
+  "formulaTeamName": "zmiana",
+  "formulaTeamNationality": "POLAND",
+  "formulaTeamWCCTitles": 1,
+  "formulaTeamYearFounded": 2024
+}
+
+### UPDATE team
+PUT localhost:8082/api/formulaTeams/0ae94084-5da3-4e97-8a0b-8cdc5c766123
+Content-Type: application/json
+
+{
+  "formulaTeamName": "UpdateTeamName",
+  "formulaTeamNationality": "POLAND",
+  "formulaTeamWCCTitles": 1,
+  "formulaTeamYearFounded": 2024
+}
+
