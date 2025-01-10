@@ -20,8 +20,6 @@ public class App
     @Bean
     public RouteLocator routeLocator(
             RouteLocatorBuilder builder,
-            @Value("${pl.wiesiek.drivers.url}") String driversUrl,
-            @Value("${pl.wiesiek.f1teams.url}") String formulaTeamsUrl,
             @Value("${pl.wiesiek.gateway.host}") String host
     ) {
         return builder
@@ -34,7 +32,7 @@ public class App
                                 "/api/formulaTeams/{id}"
 
                         )
-                        .uri(formulaTeamsUrl)
+                        .uri("lb://lab4F1Teams")
                 )
                 .route("drivers", route -> route
                         .host(host)
@@ -45,9 +43,11 @@ public class App
                                 "/api/formulaTeams/{id}/drivers",
                                 "/api/formulaTeams/{id}/drivers/**"
                         )
-                        .uri(driversUrl)
+                        .uri("lb://lab4Drivers")
                 )
                 .build();
     }
+
+
 
 }
