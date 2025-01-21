@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2">
+
+        <createTable tableName="formulaTeams">
+            <column name="formulaTeamID" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="formulaTeams__PK"/>
+            </column>
+            <column name="formulaTeamName" type="VARCHAR(1024)"/>
+            <column name="formulaTeamNationality" type="VARCHAR(1024)"/>
+            <column name="formulaTeamWCCTitles" type="INTEGER"/>
+            <column name="formulaTeamYearFounded" type="INTEGER"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
