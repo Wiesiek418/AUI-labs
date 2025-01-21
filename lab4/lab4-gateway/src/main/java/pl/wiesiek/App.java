@@ -3,11 +3,13 @@ package pl.wiesiek;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class App 
 {
     public static void main( String[] args )
@@ -18,8 +20,6 @@ public class App
     @Bean
     public RouteLocator routeLocator(
             RouteLocatorBuilder builder,
-            @Value("${pl.wiesiek.drivers.url}") String driversUrl,
-            @Value("${pl.wiesiek.f1teams.url}") String formulaTeamsUrl,
             @Value("${pl.wiesiek.gateway.host}") String host
     ) {
         return builder
@@ -32,7 +32,7 @@ public class App
                                 "/api/formulaTeams/{id}"
 
                         )
-                        .uri(formulaTeamsUrl)
+                        .uri("lb://lab4F1Teams")
                 )
                 .route("drivers", route -> route
                         .host(host)
@@ -43,9 +43,11 @@ public class App
                                 "/api/formulaTeams/{id}/drivers",
                                 "/api/formulaTeams/{id}/drivers/**"
                         )
-                        .uri(driversUrl)
+                        .uri("lb://lab4Drivers")
                 )
                 .build();
     }
+
+
 
 }
